@@ -3,5 +3,5 @@ compose-up:
 	docker-compose up --abort-on-container-exit
 
 # run jests
-compose-test:
+ci:
 	docker-compose -f docker-compose.yml up --abort-on-container-exit
