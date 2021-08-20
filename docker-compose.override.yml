@@ -11,6 +11,8 @@ services:
     ports:
       - "0.0.0.0:8080:8080"
     command: npm start
+    depends_on: 
+      - db
 
   caddy:
     image: caddy:2.4.3
@@ -23,7 +25,18 @@ services:
       - caddy_config:/config
     depends_on:
       - app
+    
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
 volumes:
   caddy_data:
   caddy_config:
+  pgdata:
