@@ -32,6 +32,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: ./Dockerfile.production 
+          context: .
+          path: Dockerfile.production 
           push: true
           tags: 132043212/devops-for-programmers-project-lvl1:latest
