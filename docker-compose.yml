@@ -3,5 +3,7 @@ version: "3.9"
 services:
   app:
     build: .
+    volumes:
+      - ./app:/app
     command: npm test
   
