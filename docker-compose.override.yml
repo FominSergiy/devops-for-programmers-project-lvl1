@@ -1,6 +1,7 @@
 version: "3.9"
 
 services:
+
   app:
     build:
       context: .
@@ -10,4 +11,19 @@ services:
     ports:
       - "0.0.0.0:8080:8080"
     command: npm start
-  
+
+  caddy:
+    image: caddy:2.4.3
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./services/caddy/Caddyfile:/etc/caddy/Caddyfile"
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+
+volumes:
+  caddy_data:
+  caddy_config:
