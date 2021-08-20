@@ -35,4 +35,4 @@ jobs:
           context: .
           file: Dockerfile.production 
           push: true
-          tags: 132043212/devops-for-programmers-project-lvl1:latest
+          tags: 4132043212/devops-for-programmers-project-lvl1:latest
